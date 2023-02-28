@@ -1,0 +1,22 @@
+---
+const platform = "Twitter";
+const username = "mortenlines";
+---
+
+<footer>
+  <p>Følg meg på <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!</p>
+</footer>
+
+<style>
+    footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  a {
+    padding: 0.3rem 0.6rem;
+    color: white;
+    background-color: #4c1d95;
+    text-decoration: none;
+  }
+</style>
