@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+
+const pageTitle = "Mortens💡";
 ---
 
 <html lang="en">
@@ -7,7 +10,7 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astrl Blog</title>
+		<title>{pageTitle} | Astro Blog</title>
 	</head>
 	<body>
 		<navigation>
@@ -15,7 +18,7 @@
 			<a href="/about/">About</a>
 			<a href="/blog/">Blog</a>
 		</navigation>
-		<h1>Mortens💡</h1>
+		<h1>{pageTitle}</h1>
 		<p>Velkommen...</p>
 	</body>
 </html>

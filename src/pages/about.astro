@@ -1,4 +1,13 @@
 ---
+import '../styles/global.css';
+
+const pageTitle = "Om meg👋";
+const languages = ["C# / Java", "JavaScript / TypeScript", "HTML / CSS", "AngularJs / VueJs", "Astro", "Objective-C"];
+const employed = true;
+const employer = "Jobbnorge";
+const employerUrl = "https://www.jobbnorge.no/";
+
+const languageColor = "goldenrod";
 ---
 
 <html lang="en">
@@ -7,7 +16,16 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Blog</title>
+		<title>{pageTitle} | Astro Blog</title>
+        <style define:vars={{languageColor}}>
+            h1 {
+                color: purple;
+            }
+            .language {
+                color: var(--languageColor);
+                font-weight: bold;
+            }
+        </style>
 	</head>
 	<body>
         <navigation>
@@ -15,7 +33,14 @@
 			<a href="/about/">About</a>
 			<a href="/blog/">Blog</a>
 		</navigation>
-		<h1>Om meg👋</h1>
+		<h1>{pageTitle}</h1>
+        { employed 
+            ? <p>Jeg er for tiden ansatt i {employer} ({employerUrl}).</p>
+            : <p><strong>Jeg ser etter nye utfordringer</strong></p>}
         <p>Jeg er slik og slik.</p>
+        <p>Språk og rammeverk:</p>
+        <ul>
+            {languages.map((language) => <li class="language">{language}</li>)}
+        </ul>
 	</body>
 </html>

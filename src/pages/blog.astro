@@ -1,4 +1,7 @@
 ---
+import '../styles/global.css';
+
+const pageTitle = "Blogg📚";
 ---
 
 <html lang="en">
@@ -7,7 +10,7 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astrl Blog</title>
+		<title>{pageTitle} | Astro Blog</title>
 	</head>
 	<body>
 		<navigation>
@@ -15,7 +18,12 @@
 			<a href="/about/">About</a>
 			<a href="/blog/">Blog</a>
 		</navigation>
-		<h1>Blogg📚</h1>
+		<h1>{pageTitle}</h1>
 		<p>Her kan du finne mine skriverier...</p>
+		<ul>
+			<li><a href="/posts/post-3/">Post 3</a></li>
+			<li><a href="/posts/post-2/">Post 2</a></li>
+			<li><a href="/posts/post-1/">Post 1</a></li>
+		</ul>
 	</body>
 </html>
