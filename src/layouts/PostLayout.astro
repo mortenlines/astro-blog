@@ -1,0 +1,12 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+const friendlyDate = new Date(frontmatter.pubDate).toLocaleDateString();
+---
+<BaseLayout pageTitle={frontmatter.title}>
+    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+    <p>Fablet av {frontmatter.author} den {friendlyDate}</p>
+    <hr>
+    <slot />
+</BaseLayout>

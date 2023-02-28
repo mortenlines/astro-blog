@@ -1,17 +1,14 @@
 ---
-title: 'My First Blog Post'
-pubDate: 2023-01-01
+title: 'Om tingenes tilstand'
 description: 'This is the first post of my new Astro blog.'
-author: 'Astro Learner'
+pubDate: 2023-01-01
+author: 'Morten Lines'
 image:
     url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
     alt: 'The Astro logo with the word One.'
 tags: ["astro", "blogging", "learning in public"]
+layout: "../../layouts/PostLayout.astro"
 ---
-# My First Blog Post
-
-Published on: {{pubDate}}
-
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
 ## What I've accomplished

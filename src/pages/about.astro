@@ -1,9 +1,6 @@
 ---
-import '../styles/global.css';
-import Header from '../components/header.astro';
-import Footer from '../components/footer.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const pageTitle = "Om meg👋";
 const languages = ["C# / Java", "JavaScript / TypeScript", "HTML / CSS", "AngularJs / VueJs", "Astro", "Objective-C"];
 const employed = true;
 const employer = "Jobbnorge";
@@ -12,34 +9,19 @@ const employerUrl = "https://www.jobbnorge.no/";
 const languageColor = "goldenrod";
 ---
 
-<html lang="nb">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle} | Astro Blog</title>
-        <style define:vars={{languageColor}}>
-            .language {
-                color: var(--languageColor);
-                font-weight: bold;
-            }
-        </style>
-	</head>
-	<body>
-        <Header />
-		<h1>{pageTitle}</h1>
-        { employed 
-            ? <p>Jeg er for tiden ansatt i {employer} ({employerUrl}).</p>
-            : <p><strong>Jeg ser etter nye utfordringer</strong></p>}
-        <p>Jeg er slik og slik.</p>
-        <p>Språk og rammeverk:</p>
-        <ul>
-            {languages.map((language) => <li class="language">{language}</li>)}
-        </ul>
-        <Footer />
-        <script>
-			import "../scripts/menu.js";
-		</script>
-	</body>
-</html>
+<style define:vars={{languageColor}}>
+    .language {
+        color: var(--languageColor);
+        font-weight: bold;
+    }
+</style>
+<BaseLayout pageTitle="Om meg👋">
+    { employed 
+        ? <p>Jeg er for tiden ansatt i {employer} (<a href={employerUrl}>jobbnorge.no</a>)👨‍💻</p>
+        : <p><strong>Jeg ser etter nye utfordringer</strong></p>}
+    <p>Jeg er slik og slik.</p>
+    <p>Språk og rammeverk:</p>
+    <ul>
+        {languages.map((language) => <li class="language">{language}</li>)}
+    </ul>
+</BaseLayout>
