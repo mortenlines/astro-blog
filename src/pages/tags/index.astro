@@ -1,26 +1,25 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const allPosts = await Astro.glob('../posts/*.md');
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
 
-const { frontmatter } = Astro.props;
-const friendlyDate = new Date(frontmatter.pubDate).toLocaleDateString();
+
 ---
-<BaseLayout pageTitle={frontmatter.title}>
-    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-    <p>Fablet av {frontmatter.author} den {friendlyDate}</p>
-    <hr>
-    <slot />
-    <hr>
+
+<BaseLayout pageTitle="Knagger">
+    <p>Du spør, så her får du ei liste over knaggene som er i bruk:</p>
     <div class="tags">
-        {frontmatter.tags.map((tag) => (
+        {tags.map((tag) => (
           <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
         ))}
       </div>
 </BaseLayout>
+
 <style>
     a {
       color: #00539F;
     }
-              
+          
     .tags {
       display: flex; 
       flex-wrap: wrap; 

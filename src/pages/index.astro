@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting.vue";
 ---
 
 <BaseLayout pageTitle="Mortens💡">
 	<h2>Velkommen</h2>
-	<p>Så kjekt at du tar deg tid til å besøke siden <i>min</i>!🙏</p>
+	<Greeting client:only="visible" />
 </BaseLayout>
